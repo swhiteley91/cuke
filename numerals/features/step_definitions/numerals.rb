@@ -10,11 +10,10 @@ When(/^the converter is run$/) do
 end
 
 When(/^the input is (\d+)$/) do |arg1|
-  @output = `javac Main.java && java Main arg1`
+  @output = `javac Main.java && java Main #{arg1}`
   raise('Command failed!') unless $?.success?
 end
 
 Then(/^the output should be "(.*?)"$/) do |arg1|
   @output.should == arg1
 end
-
